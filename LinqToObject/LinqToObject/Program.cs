@@ -25,8 +25,19 @@ namespace LinqToObject
             var filter = from i in listofstudents
                          where i.Age > 19
                          where i.Name.Length>5
-                         select i.Name; //Query-Expressions Style which uses clauses
+                         select i.Name; //Query-Expressions Style which uses clauses; this is deffered/lazy evaluation of a query
+           
             foreach(var i in filter)
+            {
+                Console.WriteLine(i);
+            }
+            Console.ReadLine();
+
+            var filter2 = (from i in listofstudents
+                           where i.Name.Contains("a")
+                           select i.Name).ToArray();//Immediate/eager evaluation of a query using an extention method.
+
+            foreach (var i in filter2)
             {
                 Console.WriteLine(i);
             }
