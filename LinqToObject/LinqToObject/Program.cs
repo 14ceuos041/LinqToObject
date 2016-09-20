@@ -15,14 +15,15 @@ namespace LinqToObject
                 new Student(){Name="Vural", Age=22},
                 new Student(){Name="Aurdvan", Age=20},
                 new Student(){Name="Selim", Age=25},
-                new Student(){Name="Rehmi", Age=10}
+                new Student(){Name="Rehmi", Age=10},
+                new Student(){Name="Joseph", Age=23}
             };
             return myStudents;
         }
         static void Main(string[] args)
         {
-            var listofstudents = Program.getStudents();
-            var filter = from i in listofstudents
+            var listofstudents = Program.getStudents();//Implicitly typed variable
+            var filter = from i in listofstudents//Can also be added into single line
                          where i.Age > 19
                          where i.Name.Length>5
                          select i.Name; //Query-Expressions Style which uses clauses; this is deffered/lazy evaluation of a query
